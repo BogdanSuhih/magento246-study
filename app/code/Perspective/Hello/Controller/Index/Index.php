@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Perspective\Hello\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
@@ -16,6 +19,10 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-        return $this->_pageFactory->create();
+        $page = $this->_pageFactory->create();
+        $page->getConfig()
+        ->getTitle()
+        ->set('6_9.Layout-Template');
+        return $page;
     }
 }
