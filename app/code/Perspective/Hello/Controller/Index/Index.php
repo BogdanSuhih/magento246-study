@@ -22,7 +22,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $page = $this->_pageFactory->create();
         $page->getConfig()
         ->getTitle()
-        ->set('6_9.Layout-Template');
+        ->set('6_10. Block');
         return $page;
     }
 }
