@@ -1,0 +1,16 @@
+<?php
+/** @var \Perspective\Customers\ViewModel\Index $viewModel */
+
+$viewModel = $block->getViewModel();
+$customers = $viewModel->getCustomers();
+?>
+
+<div>
+    <?php foreach ($customers as $customer) :?>
+        Name: <?= $customer->getFirstname()?> <br>
+        Last Name: <?= $customer->getLastname()?> <br>
+        Email: <?= $customer->getEmail()?> <br><br>
+
+    <?php endforeach; ?>
+    
+</div>

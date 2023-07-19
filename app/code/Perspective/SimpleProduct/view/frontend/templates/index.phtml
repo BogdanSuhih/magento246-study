@@ -1,0 +1,12 @@
+<?php
+/** @var \Perspective\SimpleProduct\ViewModel\Index $viewModel */
+
+$viewModel = $block->getViewModel();
+?>
+
+<div>
+    <?php foreach ($viewModel->getProductsByCriteria("t%",30,50,'DESC') as $product): ?>
+        <h2> <?= $product->getName(); ?> </h2>
+        <h3> <?= $product->getPrice(); ?> </h3>
+    <?php endforeach; ?>
+</div>

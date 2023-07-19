@@ -1,0 +1,15 @@
+<?php
+/** @var \Perspective\Category\ViewModel\Index $viewModel */
+$viewModel = $block->getViewModel();
+$categoriesData = $viewModel->getCategoriesData();
+$categories = $viewModel->getCategories()->getItems();
+?>
+
+<div>
+    <?php var_dump($categoriesData->getData());?>
+    <br><hr><br>
+    <?php foreach ($categories as $category):?>
+        <?= $category->getName();?>, 
+    <?php endforeach; ?>
+
+</div>

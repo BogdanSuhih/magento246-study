@@ -1,0 +1,10 @@
+<?php
+/** @var \Perspective\Customers\ViewModel\Index $viewModel */
+
+$viewModel = $block->getViewModel();
+$customers = $viewModel->getAll();
+?>
+
+<div>
+        <?php var_dump ($customers->getData());?>
+</div>
