@@ -1,0 +1,14 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex1\P4 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$products = $viewModel->getProductCollectionCategoriesVisibleEnable();
+
+echo '<h1>Theme 5. Ex 1.4</h1>';
+echo '<h3>Get Product Collection Filter By Visibility </h3>';
+foreach ($products as $product) {
+    echo $product->getName() . ' - ' . $product->getProductUrl() . '<br />';
+}
+
+?>

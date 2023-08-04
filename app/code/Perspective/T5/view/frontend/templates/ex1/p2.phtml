@@ -1,0 +1,28 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex1\P2 $viewModel
+*/
+$viewModel = $block->getViewModel();
+
+$productIds = $viewModel->getCatalogPriceRuleProductIds();
+
+echo '<h1>Theme 5. Ex 1.2</h1>';
+echo '<h3>Get List Products from Catalog Rule Condition</h3>';
+
+echo '<table>';
+foreach($productIds as $productId => $ruleName) {
+    echo "<tr>";
+    $product = $viewModel->getProductById($productId);
+    $categoryIds = implode(',', $product->getCategoryIds());
+    
+    echo(
+    '<td>Product name: '.$product->getName().'</td>'
+    .'<td> Category Ids: '.$categoryIds.'</td>'
+    .'<td> Rule: '.$ruleName.'</td>'
+    );
+    echo "</tr>";
+
+}
+echo '</table>';
+
+?>

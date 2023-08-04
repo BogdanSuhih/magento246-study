@@ -1,0 +1,15 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex2\P7 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$activeShippingMethods = $viewModel->getActiveShippingMethods();
+
+echo '<h1>Theme 5. Ex 2.7</h1>';
+echo '<h3>Получить список активных методов доставки (Shipping Methods)</h3>';
+foreach ($activeShippingMethods as $model) {
+    echo $model->getConfigData('title') . '<br>';
+    
+};
+
+?>

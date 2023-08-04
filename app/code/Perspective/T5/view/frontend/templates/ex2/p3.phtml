@@ -1,0 +1,29 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex2\P3 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$customers = $viewModel->getCustomerCollection();
+
+echo '<h1>Theme 5. Ex 2.3</h1>';
+echo '<h3>Получить коллекцию всех покупателей (Customers)</h3>';
+
+?>
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created at</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($customers as $customer) : ?>
+        <tr>
+            <td><?= $customer->getName(); ?></td>
+            <td><?= $customer->getEmail(); ?></td>
+            <td><?= $customer->getCreatedAt(); ?></td>
+        </tr>
+    <?php endforeach ;?>
+    </tbody>
+</table>

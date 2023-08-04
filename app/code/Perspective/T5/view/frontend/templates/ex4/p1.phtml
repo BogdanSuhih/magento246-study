@@ -1,0 +1,43 @@
+<?php
+/** 
+ *  @var \Perspective\T5\ViewModel\Ex4\P1 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$bundleProducts = $viewModel->getBundleProducts();
+
+echo '<h1>Theme 5. Ex 4.1</h1>';
+echo '<h3>Получить коллекцию Bundle products и к каждому такому продукту получить список ChildrenProducts</h3>';
+
+?>
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>SKU</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($bundleProducts as $product) : ?>
+        <tr>
+            <td><?= $product->getName(); ?></td>
+            <td><?= $product->getSku(); ?></td>
+            <td></td>
+        </tr>
+        <?php if (!empty($product->getData('children_products'))) : ?>
+            <tr>
+                    <td colspan="3"><hr></td>
+            </tr>
+
+            <?php foreach ($product->getData('children_products') as $child) : ?>
+                <tr>
+                    <td><?= $child->getName(); ?></td>
+                    <td><?= $child->getSku(); ?></td>
+                    <td><?= $child->getPrice(); ?></td>
+                </tr>
+            <?php endforeach ;?>
+    
+        <?php endif ; ?>
+    <?php endforeach ;?>
+    </tbody>
+</table>

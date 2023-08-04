@@ -1,0 +1,28 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex2\P4 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$orderCollection = $viewModel->getOrderCollection();
+
+echo '<h1>Theme 5. Ex 2.4</h1>';
+echo '<h3>Получить коллекцию заказов (Orders) по любому выбранному фильтру (created_at, DESC)</h3>';
+?>
+<table>
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Customer Name</th>
+        <th>Created at</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($orderCollection as $orders) : ?>
+        <tr>
+            <td><?= $orders->getId(); ?></td>
+            <td><?= $orders->getCustomerName(); ?></td>
+            <td><?= $orders->getCreatedAt(); ?></td>
+        </tr>
+    <?php endforeach ;?>
+    </tbody>
+</table>

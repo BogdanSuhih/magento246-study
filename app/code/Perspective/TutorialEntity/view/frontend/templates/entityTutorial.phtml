@@ -2,7 +2,10 @@
 /** @var \Perspective\TutorialEntity\Block\EntityRepository $block */
 
 ?>
-<?php $product = $block->getProductById(1)?>
+<?php 
+$product = $block->getProductById(1);
+$cheapProducts = $block->getCheapProducts(15);
+?>
 <div class="entity-repository">
     <h1><?=$block->getName()?></h1>
     <?php if (!is_null($product)) : ?>
@@ -10,8 +13,11 @@
         <p><?= $product->getDescription();?></p>
     <?php endif; ?>
     <hr>
-    <?php foreach ($block->getCheapProducts(15) as $cheapProduct): ?>
+    <?php if (!is_null($cheapProducts)) : ?>
+    <?php foreach ($cheapProducts as $cheapProduct): ?>
         <h2> <?= $cheapProduct->getName(); ?> </h2>
         <h3> <?= $cheapProduct->getPrice(); ?> </h3>
     <?php endforeach; ?>
+    <?php endif; ?>
+
 </div>

@@ -1,0 +1,15 @@
+<?php
+/**
+ *  @var \Perspective\T5\ViewModel\Ex2\P2 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$productId = 25;
+$image = $viewModel->getImage($productId, 'product_page_main_image_default');
+
+echo '<h1>Theme 5. Ex 2.2</h1>';
+echo '<h3>Получить информацию об изображения продукта (Image) getWidth(), getHeight(), getUrl()</h3>';
+
+echo '<b>Product id: </b> ' . $productId . '<br>';
+echo '<b>Product width: </b> ' . $image->getWidth() . '<br>';
+echo '<b>Product height: </b> ' . $image->getHeight() . '<br>';
+echo '<b>Product Url: </b> ' . $image->getUrl() . '<br>';

@@ -1,0 +1,61 @@
+<?php
+/** @var \Perspective\LearnCollection\Block\Template $block 
+*   @var \Perspective\LearnCollection\ViewModel\LearnCollection $viewModel
+*/
+
+$viewModel = $block->getViewModel();
+$productCollection = $viewModel->getProductCollection();
+$collectionLikeScu = $viewModel->getProductCollectionLikeSku('%WB%');
+$productCollectionNameSku = $viewModel->getProductCollectionNameSku();
+$productCollectionCategories = $viewModel->getProductCollectionCategories([41]);
+$productCollectionCategoriesVisibleEnable = $viewModel->getProductCollectionCategoriesVisibleEnable(2);
+$simpleProduct = $viewModel->getSimpleProduct();
+
+
+foreach ($productCollection as $product) {
+    print_r($product->getData());
+    echo "<hr>";
+}
+
+
+echo '<div>';
+echo '<hr> <br> getProductCollectionLikeSku <br> <hr>';
+foreach ($collectionLikeScu as $product) {
+    print_r($product->getSku());
+    echo "<br>";
+}
+echo '</div>';
+
+
+echo '<div>';
+echo '<hr> <br> getProductCollectionNameSku <br> <hr>';
+foreach ($productCollectionNameSku as $product) {
+    print_r($product->getData());
+    echo "<br>";
+}
+echo '</div>';
+
+echo '<div>';
+echo '<hr> <br> getProductCollectionCategories <br> <hr>';
+foreach ($productCollectionCategories as $product) {
+    print_r($product->getData());
+    echo "<br>";
+}
+echo '</div>';
+
+echo '<div>';
+echo '<hr> <br> productCollectionCategoriesVisibleEnable <br> <hr>';
+foreach ($productCollectionCategoriesVisibleEnable as $product) {
+    print_r($product->getName());
+    echo "<br>";
+}
+echo '</div>';
+
+echo '<div>';
+echo '<hr> <br> simpleProduct <br> <hr>';
+foreach ($simpleProduct as $product) {
+    print_r($product->getName());
+    echo "<br>";
+}
+echo '</div>';
+?>

@@ -1,0 +1,17 @@
+<?php
+/** 
+ *  @var \Perspective\T5\ViewModel\Ex2\P1 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$productId = 10;
+$stockItem = $viewModel->getStockItem($productId);
+
+echo '<h1>Theme 5. Ex 2.1</h1>';
+echo '<h3>Получить информацию о наличие продукта Qty(), MinQty(), MinSaleQty(), MaxSaleQty(), IsInStock()</h3>';
+echo '<b>Id: </b> '.$productId.'<br>';
+echo '<b>Qty: </b> '.$stockItem->getQty(). '<br>';
+echo '<b>MinQty: </b> '.$stockItem->getMinQty().'<br>';
+echo '<b>MinSaleQty: </b> '.$stockItem->getMinSaleQty().'<br>';
+echo '<b>MaxSaleQty: </b> '.$stockItem->getMaxSaleQty().'<br>';
+echo '<b>IsInStock: </b> '.$stockItem->getIsInStock().'<br>';
+?>

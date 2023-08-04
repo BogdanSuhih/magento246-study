@@ -1,0 +1,16 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex2\P5 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$customerGroups = $viewModel->getGroupCollection()->getItems();
+
+echo '<h1>Theme 5. Ex 2.5</h1>';
+echo '<h3>Получить все группы покупателей (Group Customers)</h3>';
+
+foreach ($customerGroups as $group) {
+    echo "<br>";
+    echo '<b>Group id: </b> ' . $group->getId() . '<br>';
+    echo '<b>Group name: </b> ' . $group->getCode() . '<br>';
+}
+?>

@@ -1,0 +1,33 @@
+<?php
+/**  
+ *  @var \Perspective\T5\ViewModel\Ex2\P6 $viewModel
+*/
+$viewModel = $block->getViewModel();
+$activeMethods = $viewModel->getActivePaymentMethods();
+$allMet = $viewModel->getAllPaymentMethodsList();
+$aviliableMet = $viewModel->getAvailablePaymentMethods();
+
+echo '<h1>Theme 5. Ex 2.6</h1>';
+echo '<h3>Получить список методов оплаты (Payment Methods)</h3>';
+
+// echo "<b> Active Payment\Model\Config  <br></b>";
+// foreach ($activeMethods as $method) {
+//     echo 'Code:' . $method->getCode() . '<br>';
+//     echo 'Title:' . $method->getTitle(). '<br>';
+// };
+// echo "<hr><b> All Payment\Helper\Data </b><br>";
+foreach ($allMet as $code => $title) {
+    // echo 'Code:' . $code . '<br>';
+    // echo 'Title:' . $title . '<br>';
+    echo $title . '<br>';
+};
+
+// echo "<hr><b> AvailablePaymentMethods \Payment\Model\MethodList </b><br>";
+// foreach ($aviliableMet as $method) {
+//     echo 'Code:' . $method->getCode() . '<br>';
+//     echo 'Title:' . $method->getTitle() . '<br>';
+//     if ($method->getIsActive()) {
+//         echo '<b>IsActive:</b>' . $method->getIsActive() . '<br>';
+//     }
+// };
+?>

@@ -1,0 +1,32 @@
+<?php
+/** 
+ *  @var \Perspective\T5\ViewModel\Ex3\P1 $viewModel
+ *  @var \Magento\Catalog\Model\Product $product
+*/
+$viewModel = $block->getViewModel();
+
+$categoryId = [23];
+$products = $viewModel->getProductCollectionByCategories($categoryId);
+
+echo '<h1>Theme 5. Ex 3.1</h1>';
+echo '<h3>Вывести SKU, Name и Price продуктов из категории Women - Tops - Jackets, где Price от 50$ до 60$</h3>';
+
+?>
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>SCU</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($products as $product) : ?>
+        <tr>
+            <td><?= $product->getName(); ?></td>
+            <td><?= $product->getSku(); ?></td>
+            <td><?= $product->getData('price'); ?></td>
+        </tr>
+    <?php endforeach ;?>
+    </tbody>
+</table>
