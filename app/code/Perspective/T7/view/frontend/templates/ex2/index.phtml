@@ -1,0 +1,28 @@
+<?php
+/** 
+ *  @var \Perspective\T7\ViewModel\Ex2\Index $viewModel
+*/
+$viewModel = $block->getViewModel();
+
+echo '<h1>Theme 7. Ex 2</h1>';
+echo '<h3>Получить данные о quote из сессии.</h3>';
+
+$quote = $viewModel->getCheckoutSession()->getQuote();
+$cart = $viewModel->getCart();
+$items = $quote->getData();
+
+echo '<h3>ID: '.$quote->getId().'</h3>' ;
+echo '<h3>Created: '.$quote->getCreatedAt().'</h3>' ;
+
+$items = $quote->getAllItems();
+echo '<h3>Items: '.count($items).'</h3>' ;
+foreach($items as $item) {
+    echo 'ID: '.$item->getProductId().'<br />';
+    echo 'Name: '.$item->getName().'<br />';
+    echo 'Sku: '.$item->getSku().'<br />';
+    echo 'Quantity: '.$item->getQty().'<br />';
+    echo 'Price: '.$item->getPrice().'<br />';
+    echo "<br />";            
+}
+
+?>

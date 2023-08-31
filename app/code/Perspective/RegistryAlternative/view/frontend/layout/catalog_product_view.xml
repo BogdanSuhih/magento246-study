@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block 
+            class="Perspective\RegistryAlternative\ViewModel\Index" 
+            name="Perspective_RegistryAlternative_Index" 
+            template="Perspective_RegistryAlternative::backtocategory.phtml" 
+            before="-"
+            >
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Perspective\RegistryAlternative\ViewModel\Index</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

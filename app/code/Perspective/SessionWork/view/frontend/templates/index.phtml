@@ -1,0 +1,14 @@
+<?php
+/** @var \Perspective\SessionWork\ViewModel\Index $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$viewModel->getCatalogSession()->setMyName('Perspective');
+echo $viewModel->getCatalogSession()->getData('my_name') . '</br>';
+
+$viewModel->getCatalogSession()->setTestData('Hello World');
+echo $viewModel->getCatalogSession()->getTestData(). '</br>';
+
+$viewModel->getCatalogSession()->setTestHello('Test Hello Value');
+echo $viewModel->getCatalogSession()->getTestHello(). '</br>';
+
+?>

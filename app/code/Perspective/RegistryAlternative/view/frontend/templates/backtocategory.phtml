@@ -1,0 +1,12 @@
+<?php
+/** @var \Perspective\RegistryAlternative\ViewModel\Index $viewModel */
+$viewModel = $block->getData('viewModel');
+
+if (!$viewModel->getCategoryUrl()) {
+    return ;
+}
+?>
+
+<div class="back-to-category-new">
+    <a href="<?php echo $viewModel->getCategoryUrl() ?>"><?php echo __(sprintf("Back to %s", $viewModel->getCategoryName())) ?></a>
+</div>

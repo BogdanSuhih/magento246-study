@@ -1,0 +1,24 @@
+<?php
+/**  
+ * @var \Perspective\T7\ViewModel\Ex1\Index $viewModel
+*/
+$viewModel = $block->getViewModel();
+$order = $viewModel->getLastOrder();
+
+
+echo '<h1>Theme 7. Ex 1</h1>';
+echo '<h3>Получить последний заказ (order) из сессии и вывести доступную информацию о нем:
+ идентификатор, список продуктов в заказе, шипинг и пеймент методы, информацию о кастомере</h3>';
+
+echo '<b>Id: </b> '.$order->getId().'<br>';
+echo '<b>Payment method: </b> '.$order->getPayment()->getMethod().'<br>';
+echo '<b>Shipping method: </b> '.$order->getShippingMethod().'<br>';
+echo '<b>Customer Name: </b> '.$order->getCustomerName().'<br>';
+
+$products = $order->getItems();
+echo '<b>Products: </b> ('.count($products).')<br>';
+foreach ($products as $item) {
+    echo $item->getName().'<br>';
+}
+
+?>

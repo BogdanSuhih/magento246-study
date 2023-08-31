@@ -1,0 +1,22 @@
+<?php
+/** 
+ *  @var \Perspective\T7\ViewModel\Ex3\Index $viewModel
+*/
+$viewModel = $block->getViewModel();
+
+
+echo '<h1>Theme 7. Ex 3</h1>';
+echo '<h3>Получить список продуктов из WishList (листа желаний) текущего customer. Id customer получить из сессии. Добавить некоторый продукт в
+лист желаний, удалить другой продукт из листа желаний.</h3>';
+
+$customerId = $viewModel->getCustomerId();
+
+$wishlistCollection = $viewModel->getWishlistByCustomerId($customerId);
+if(count($wishlistCollection)) {
+    foreach ($wishlistCollection as $item) { 
+    echo '<b>Название продукта: </b>' . $item->getProduct()->getName() . '<br>';
+    echo '<b>Id: </b>' . $item->getProduct()->getId() . '<br>';
+    echo '<b>Sku: </b>' . $item->getProduct()->getSku() . '<br>';
+    echo '<b>Цена: </b>' . $item->getProduct()->getFinalPrice() . '$' .'<br>';
+    }
+}

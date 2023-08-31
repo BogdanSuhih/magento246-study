@@ -1,0 +1,22 @@
+<?php
+/** @var \Perspective\CurrentProduct\ViewModel\Index $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+<?php
+
+if ($currentProduct = $viewModel->getCurrentProductHelper()) {
+    echo "Name: ".$currentProduct->getName() . '<br />';
+    echo "SKU: ".$currentProduct->getSku() . '<br />';
+    echo "Price: ".$currentProduct->getFinalPrice() . '<br />';
+    echo "URL: ".$currentProduct->getProductUrl() . '<br />';
+    if ($categoryIds = $currentProduct->getCategoryIds()) {
+        echo 'Category IDs; ' . implode(',',$categoryIds). '<br/>';
+    }
+}
+if ($currentCategory = $viewModel->getCurrentCategoryHelper()) {
+    echo 'Category name: ';
+    echo $currentCategory->getName() . '<br />';
+    echo 'Category URL: ';
+echo $currentCategory->getUrl() . '<br />';
+}
+?>

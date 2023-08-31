@@ -1,0 +1,14 @@
+<?php
+/** 
+ *  @var \Perspective\T7\ViewModel\Ex4\Index $viewModel
+*/
+$viewModel = $block->getViewModel();
+
+echo '<h1>Theme 7. Ex 4</h1>';
+echo '<h3>Get the items that are present in the quote of admin order</h3>';
+
+$viewModel->setBackendQuote();
+$quote = $viewModel->getBackendQuote();
+var_dump ($quote->getData());
+
+?>
