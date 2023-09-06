@@ -1,0 +1,35 @@
+<?php
+/**
+ * @var \Perspective\T10Db\ViewModel\Review $viewModel
+ */
+$viewModel = $block->getData('view_model');
+
+$reviews = $viewModel->getReviewCollectionByCustomerId(5);
+?>
+<h3>3.2 Получить коллекцию отзывов определенного кастомера</h3>
+<table class="data grid" data-role="grid">
+    <thead>
+        <tr>
+            <th class="data-grid-th">Review ID</th>
+            <th class="data-grid-th">Product ID</th>
+            <th class="data-grid-th">Text</th>
+            <th class="data-grid-th">Review date</th>
+            <th class="data-grid-th">Customer ID</th>
+            <th class="data-grid-th">Customer name</th>
+            <th class="data-grid-th">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($reviews as $review) : ?>
+            <tr class="data-row">
+                <td class="data-grid-td"><?php echo $review->getId(); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("product_id"); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("text_rev"); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("review_date"); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("customer_id"); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("customer_name"); ?></td>
+                <td class="data-grid-td"><?php echo $review->getData("customer_email"); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

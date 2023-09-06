@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var \Perspective\T10Db\ViewModel\Review $viewModel
+ */
+$viewModel = $block->getData('view_model');
+$categoryId = 15;
+$products = $viewModel->getProductsByCategoryId($categoryId);
+?>
+<h3>3.3 Получить коллекцию отзывов на продукты заданной категории, причем к каждому продукту кроме отзыва вывести его изображение,
+название, SKU, стоимость и категорию для проверки правильности.</h3>
+<table class="data grid" data-role="grid">
+    <thead>
+        <tr>
+            <th class="data-grid-th">Product Info</th>
+
+            <th class="data-grid-th">Review ID</th>
+            <th class="data-grid-th">Text</th>
+            <th class="data-grid-th">Customer name</th>
+            <th class="data-grid-th">Email</th>
+        </tr>
+    </thead>
+
+    <?php if ($products):?>
+
+        <tbody>
+        <?php foreach ($products as $product) : ?>
+            <?php 
+                $productId = $product->getId();
+                $reviews = $viewModel->getReviewCollectionByProductId($productId);
+                $reviewCount = count($reviews);    
+            ?>
+            
+            <?php if ($reviewCount > 0): ?>
+                <?php $isNewProduct = true; ?>
+                <?php foreach ($reviews as $review) : ?>
+                    <tr class="data-row">
+                        <?php if ($isNewProduct): ?>
+                            <td class="data-grid-td" rowspan="<?php echo $reviewCount; ?>">
+                                <div><b>Id: </b><?php echo $product->getId(); ?> 
+                                <b>SKU#: </b><?php echo $product->getSku(); ?> </div>
+                                <div><b>Name: </b><?php echo $product->getName(); ?> </div>
+                                <div><b>Price: </b><?php echo (float)$product->getData("price"); ?> </div>
+                                <div><b>Category: </b><?php echo $product->getData("category_name"); ?> </div>
+
+                                <img src="<?php echo $viewModel->getImageForProduct($product); ?>" width="150" height="150" alt="">
+                            </td>
+                            <?php $isNewProduct = false; ?>
+                        <?php endif; ?>
+                        <td class="data-grid-td"><?php echo $review->getId(); ?></td>
+                        <td class="data-grid-td"><?php echo $review->getData("text_rev"); ?></td>
+                        <td class="data-grid-td"><?php echo $review->getData("customer_name"); ?></td>
+                        <td class="data-grid-td"><?php echo $review->getData("customer_email"); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <?php continue;?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        </tbody>
+    <?php endif;?>
+
+</table>

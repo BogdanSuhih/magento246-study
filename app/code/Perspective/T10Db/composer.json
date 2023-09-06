@@ -1,0 +1,17 @@
+{
+    "name": "perspective/t10db",
+    "description": "",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+      "MIT"
+    ],
+    "autoload": {
+      "psr-4": {
+        "Perspective\\T10Db\\": ""
+      },
+      "files": [
+        "registration.php"
+      ]
+    }
+  }
