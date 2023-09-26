@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var \Perspective\Consultations\ViewModel\Index $viewModel
+ */
+$viewModel = $block->getData('view_model');
+
+$groupedData = $viewModel->getGroupedByName();
+?>
+<h3>Вывести полную информацию о консультациях по некоторому названию.</h3>
+
+<table class="data grid" data-role="grid">
+    <thead>
+        <tr>
+            <th class="data-grid-th">Name</th>
+
+            <th class="data-grid-th">ID</th>
+            <th class="data-grid-th">Customer name</th>
+            <th class="data-grid-th">Hours</th>
+            <th class="data-grid-th">Date</th>
+            <th class="data-grid-th">Discount</th>
+            <th class="data-grid-th">Price</th>
+
+        </tr>
+    </thead>
+
+    <?php if ($groupedData):?>
+
+        <tbody>
+        <?php foreach ($groupedData as $group) : ?>
+            <?php 
+                $consCount = count($group['consultations']);    
+            ?>
+            
+            <?php if ($consCount > 0): ?>
+                <?php $isNewName = true; ?>
+                <?php foreach ($group['consultations'] as $consultation) : ?>
+                    <tr class="data-row" data-group="<?php echo $consultation->getData("name"); ?>">
+                        <?php if ($isNewName): ?>
+                            <td class="data-grid-td" rowspan="<?php echo $consCount; ?>">
+                                <?php echo $consultation->getData("name"); ?>
+                            </td>
+                            <?php $isNewName = false; ?>
+                        <?php endif; ?>
+                        <?php
+                        $customer = $consultation->getCustomer() ?>
+                        <td class="data-grid-td"><?php echo $consultation->getId(); ?></td>
+                        <td class="data-grid-td"><?php echo $customer->getFirstname() .' '. $customer->getLastname(); ?></td>
+                        <td class="data-grid-td"><?php echo $consultation->getData("hours"); ?></td>
+                        <td class="data-grid-td"><?php echo $consultation->getData("date"); ?></td>
+                        <td class="data-grid-td"><?php echo $consultation->getData("discount"); ?></td>
+                        <td class="data-grid-td"><?php echo $consultation->getData("price"); ?></td>
+
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <?php continue;?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        </tbody>
+    <?php endif;?>
+
+</table>

@@ -1,0 +1,15 @@
+{
+    "perspective_consultations": {
+        "column": {
+            "id": true,
+            "name": true,
+            "hours": true,
+            "date": true,
+            "customer_id": true,
+            "discount": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

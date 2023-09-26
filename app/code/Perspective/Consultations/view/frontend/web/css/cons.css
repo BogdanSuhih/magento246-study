@@ -1,0 +1,31 @@
+.data.grid {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.data.grid th.data-grid-th {
+    background-color: #514943;
+    color:#ffffff;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.data.grid td.data-grid-td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.data.grid thead tr {
+    background-color: #f5f5f5;
+}
+
+.data.grid tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.data.grid tbody tr:hover {
+    background-color: #e0e0e0;
+}

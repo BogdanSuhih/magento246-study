@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table  name="custom_table" resource="default"
+            engine="innodb"
+            comment="Add column">
+        <column xsi:type="int" name="entity_id" padding="10" identity="true" unsigned="true" nullable="false" comment="Entity ID"/>
+        <column xsi:type="int" name="reference_id" padding="10" unsigned="true" nullable="false" comment="Reference ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="text" name="description" disabled="false" nullable="false" comment="Description"/>
+        <column xsi:type="varchar" name="comment" nullable="false" length="255"  comment="comment"/>
+        <column xsi:type="timestamp" name="time" comment="Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        
+        <index referenceId="INDEX_REFERENCE" indexType="btree">
+            <column name="reference_id"/>
+        </index>
+        
+    </table>
+
+    <table  name="custom_table_new" resource="default"
+            engine="innodb"
+            comment="New table">
+        <column xsi:type="int" name="entity_id" padding="10" identity="true" unsigned="true" nullable="false" comment="Entity ID"/>
+        <column xsi:type="int" name="reference_id" padding="10" unsigned="true" nullable="false" comment="Reference ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="description" onCreate="migrateDataFrom(body)" nullable="false" length="255" comment="Description"/>
+        <column xsi:type="varchar" name="comment" nullable="false" length="255"  comment="comment"/>
+        <column xsi:type="timestamp" name="time" comment="Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+    </table>
+</schema>
