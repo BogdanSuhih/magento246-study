@@ -1,0 +1,14 @@
+<?php
+/** @var \Perspective\T13Ex2\ViewModel\Index $viewModel */
+
+$viewModel = $block->getData('view_model');
+?>
+
+<?php if ($viewModel->isMsgVisible()) : ?>
+    <div class="stock available">
+            Заканчивается!
+    </div>
+    <div class="availability only">
+        <?= "Осталось <strong>{$viewModel->getProductStockQty()}</strong> " ?>
+    </div>
+<?php endif ?>

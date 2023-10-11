@@ -1,0 +1,50 @@
+<?php
+/** @var \Perspective\T13Ex1\ViewModel\Index $viewModel */
+$viewModel = $block->getData('view_model');
+$currencies = $viewModel->getEnabledCurrencies();
+$product = $viewModel->getCurrentProduct();
+$price = $product->getData('price');
+
+if($currencies) {
+    echo '<div style = "width:33%;display:inline-block;">
+    <b>Module</b>';
+    echo '<br/>';            
+    foreach ($currencies as $currency => $rate) {
+        if ($currency !== $viewModel->getCurrentCurrencyCode()) {
+            
+            echo $viewModel->formatPrice(number_format(($rate*$price), 2, '.', ','), $currency);
+            echo '<br/>';            
+        }
+    }
+    echo '</div>';
+}
+
+$enabledCurrencies = $viewModel->getAvailableCurrencyCodes();
+
+if($enabledCurrencies && $viewModel->isModuleEnabled()) {
+    echo '<div style = "width:33%; display:inline-block;">
+    <b>Currency Rates</b>';
+    echo '<br/>';            
+    foreach ($enabledCurrencies as $currency) {
+        if ($currency !== $viewModel->getCurrentCurrencyCode()) {
+            echo $viewModel->convertAndFormatPrice($price, $currency);
+            echo '<br/>';            
+        }
+    }
+    echo '</div>';
+}
+
+// if($enabledCurrencies) {
+//     echo '<div style = "width:33%;display:inline-block;">
+//     <b>Currency Rates</b>';
+//     echo '<br/>';            
+//     foreach ($enabledCurrencies as $currency) {
+//         if ($currency !== $viewModel->getCurrentCurrencyCode()) {
+//             echo $viewModel->formatPrice($viewModel->convertPrice($price, $viewModel->getBaseCurrencyCode(), $currency), $currency);
+//             echo '<br/>';            
+//         }
+//     }
+//     echo '</div>';
+// }
+
+?>

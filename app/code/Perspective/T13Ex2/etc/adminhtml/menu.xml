@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add 
+        id="Perspective_T13Ex2::ex2" 
+        title="Exercise 2" 
+        module="Perspective_T13Ex2" 
+        sortOrder="10" 
+        parent="Perspective_T13Ex1::t13_section"
+        action="adminhtml/system_config/edit/section/t13ex2" 
+        resource="Perspective_T13Ex2::ex2"/>
+    </menu>
+</config>

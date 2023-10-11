@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main" >
+            <block name="product.info.main.perspective_t13ex1" 
+            before="product.price.tier" 
+            after="product.info.price"
+            template="Perspective_T13Ex1::index.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Perspective\T13Ex1\ViewModel\Index</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

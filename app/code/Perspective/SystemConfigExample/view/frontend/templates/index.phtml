@@ -1,0 +1,11 @@
+<?php
+/** @var \Perspective\SystemConfigExample\ViewModel\Config $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+
+<div class="template">
+    <p><b>Enabled: </b><?= $viewModel->isEnabled();?></p>
+    <p><b>Title: </b><?= $viewModel->getTitle();?></p>
+    <p><b>Option: </b><?= $viewModel->getOption();?></p>
+    <p><b>Secret: </b><?= $viewModel->getSecret();?></p>
+</div>

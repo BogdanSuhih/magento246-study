@@ -1,5 +1,5 @@
 <?php
-namespace Perspective\Helloworld\Controller\Index;
+namespace Perspective\SystemConfigExample\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
@@ -8,19 +8,15 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     protected $_pageFactory;
 
-    protected $_helperData;
-
     /**
      * @param \Magento\Framework\App\Action\Context $context
      */
     public function __construct(
        \Magento\Framework\App\Action\Context $context,
-       \Magento\Framework\View\Result\PageFactory $pageFactory,
-       \Perspective\Helloworld\Helper\Data $helperData
+       \Magento\Framework\View\Result\PageFactory $pageFactory
     )
     {
         $this->_pageFactory = $pageFactory;
-        $this->_helperData = $helperData;
         return parent::__construct($context);
     }
     /**
@@ -30,9 +26,6 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        echo $this->_helperData->getGeneralConfig('enable');
-        echo $this->_helperData->getGeneralConfig('display_text');
-        exit;
         return $this->_pageFactory->create();
     }
 }
