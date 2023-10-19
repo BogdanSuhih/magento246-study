@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="perspective_uiexample" resource="default" engine="innodb" comment="Ui blog example">
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Blog ID"/>
+        <column xsi:type="varchar" name="blog_title" length="255" comment="Blog Title"/>
+        <column xsi:type="mediumtext" name="blog_description" comment="Blog Description"/>
+        <column xsi:type="smallint" name="status" nullable="false" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_id"/>
+        </constraint>
+    </table>
+</schema>

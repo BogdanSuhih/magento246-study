@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="perspective_helloworld_post" resource="default" engine="innodb" comment="Posts table">
+        <column xsi:type="int" name="post_id" padding="10" identity="true" unsigned="true" nullable="false" comment="Post Id"/>
+        <column xsi:type="varchar" name="post_name" nullable="false" length="255" comment="Post Name"/>
+        <column xsi:type="varchar" name="url_key" length="255" comment="Url_key"/>
+        <column xsi:type="varchar" name="post_content" length="255" comment="Post content"/>
+        <column xsi:type="varchar" name="tags" length="255" comment="Post tags"/>
+        <column xsi:type="int" name="status" comment="Post status"/>
+        <column xsi:type="varchar" name="featured_image" length="255" comment="featured image"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" comment="created at"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" comment="updated at"/>
+        <column xsi:type="timestamp" name="time" comment="Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="post_id"/>
+        </constraint>
+    </table>
+</schema>

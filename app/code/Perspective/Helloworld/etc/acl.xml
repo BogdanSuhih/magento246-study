@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Perspective_SystemConfigExample::perspective_menu" title="Perspective" sortOrder="1">
+                <resource id="Perspective_Helloworld::perspective_menu" title="Perspective" sortOrder="1">
                     <resource id="Perspective_Helloworld::helloworld" title="Hello World" sortOrder="51">
                         <resource id="Perspective_Helloworld::post" title="Posts" sortOrder="10"/>
                         <resource id="Perspective_Helloworld::helloworld_configuration" title="Configuration" sortOrder="99" />
@@ -13,7 +13,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Perspective_SystemConfigExample::perspective" title="Perspective" sortOrder="0">
+                            <resource id="Perspective_Helloworld::perspective" title="Perspective" sortOrder="0">
                                 <resource id="Perspective_Helloworld::helloworld_config" title="Hello World Config" sortOrder="20"/>
                             </resource>
                         </resource>
