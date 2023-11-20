@@ -1,0 +1,10 @@
+<?php
+/** @var \Perspective\T15Ex2p2\ViewModel\Index $viewModel */
+
+
+$viewModel = $block->getViewModel();
+
+if ($viewModel->isMsgVisible()) {
+    
+    echo __("За перевозку <b>'%1'</b> будет начислена дополнительная оплата <b>%2</b>", $viewModel->getProductAirFreightLable(), $viewModel->getAdditionalCost()) . '<br />';
+}

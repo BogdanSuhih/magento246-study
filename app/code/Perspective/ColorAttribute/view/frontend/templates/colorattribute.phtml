@@ -1,0 +1,9 @@
+<?php
+/** @var \Perspective\CurrentProduct\Block\Template $block */
+/** @var \Perspective\CurrentProduct\ViewModel\CurrentProduct $viewModel */
+
+$viewModel = $block->getViewModel();
+
+if ($currentProduct = $viewModel->getCurrentProduct()) {
+    echo "My color:  <b>". $currentProduct->getData('my_color') . '</b><br />';
+}

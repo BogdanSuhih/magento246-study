@@ -1,52 +1,43 @@
 <?php
-namespace Perspective\ColorAttribute\Setup\Patch\Data;
+namespace Perspective\T15Ex2p1\Setup\Patch\Data;
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 
-class AddEnableColorAttribute implements DataPatchInterface
+class AddSocialAttribute implements DataPatchInterface
 {
     private $_moduleDataSetup;
     private $_eavSetupFactory;
 
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        EavSetupFactory $eavSetupFactory
-    )
-    {
+        EavSetupFactory $eavSetupFactory,
+    ) {
         $this->_moduleDataSetup = $moduleDataSetup;
         $this->_eavSetupFactory = $eavSetupFactory;
     }
 
     public function apply()
     {
-        /** @var EavSetup $eavSetup */
 
         $eavSetup = $this->_eavSetupFactory->create(['setup' => $this->_moduleDataSetup]);
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
-            'my_color',
+            'social',
         [
             'type' => 'int',
-            'backend' => '',
-            'frontend' => '',
-            'label' => 'My Color',
-            'input' => 'select',
-            'class' => '',
-            'source' => \Magento\Catalog\Model\Product\Attribute\Source\Boolean::class,
-            'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
+            'label' => 'Social',
+            'input' => 'boolean',
             'visible' => true,
-            'required' => true,
-            'user_defined' => false,
-            'default' => '',
-            'searchable' => false,
-            'filterable' => false,
-            'comparable' => false,
-            'visible_on_front' => false,
-            'used_in_product_listing' => true,
-            'unique' => false,
+            'source' => '',
+            'position' => 1,
+            'default' => 0,
+            'system' => 0,
+            'is_used_in_grid' => true,
+            'is_visible_in_grid' => false,
+            'is_filterable_in_grid' => true,
+            'used_in_product_listing' => true
         ]);
  
     }

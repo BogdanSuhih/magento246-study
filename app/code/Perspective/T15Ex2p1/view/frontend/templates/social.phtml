@@ -1,0 +1,11 @@
+<?php
+/** @var \Perspective\T15Ex2p1\ViewModel\Social $viewModel */
+
+
+$viewModel = $block->getViewModel();
+
+if ($viewModel->isMsgVisible()) {
+
+    echo __("Social product discount - <b>%1%</b>", $viewModel->getSocialDiscount()) . '<br />';
+    echo __("Social price - <b>%1</b>", $viewModel->getSocialPrice()) . '<br />';
+}

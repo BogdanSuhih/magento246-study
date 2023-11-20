@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="custom_tab" translate="label" sortOrder="10">
+            <label>Custom</label>
+        </tab>
+        <section id="air_freight_only_section" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Air freight only</label>
+            <tab>custom_tab</tab>
+            <resource>Perspective_T15Ex2p2::air_freight_only_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="1_group" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Balloon</label>
+                <depends>
+                        <field id="air_freight_only_section/general/enable">1</field>
+                </depends>
+                <field id="1_weight" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weight Threshold</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="1_cost" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Cost</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="2_group" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Charter plane</label>
+                <depends>
+                        <field id="air_freight_only_section/general/enable">1</field>
+                </depends>
+                <field id="2_weight" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weight Threshold</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="2_cost" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Cost</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="3_group" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>High-speed plane</label>
+                <depends>
+                        <field id="air_freight_only_section/general/enable">1</field>
+                </depends>
+                <field id="3_weight" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weight Threshold</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="3_cost" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Cost</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="4_group" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Spaceship</label>
+                <depends>
+                        <field id="air_freight_only_section/general/enable">1</field>
+                </depends>
+                <field id="4_weight" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weight Threshold</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="4_cost" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Cost</label>
+                    <comment></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

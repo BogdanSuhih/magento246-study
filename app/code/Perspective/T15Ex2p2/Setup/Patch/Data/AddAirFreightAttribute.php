@@ -1,52 +1,44 @@
 <?php
-namespace Perspective\ColorAttribute\Setup\Patch\Data;
+namespace Perspective\T15Ex2p2\Setup\Patch\Data;
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 
-class AddEnableColorAttribute implements DataPatchInterface
+class AddAirFreightAttribute implements DataPatchInterface
 {
     private $_moduleDataSetup;
     private $_eavSetupFactory;
 
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        EavSetupFactory $eavSetupFactory
-    )
-    {
+        EavSetupFactory $eavSetupFactory,
+    ) {
         $this->_moduleDataSetup = $moduleDataSetup;
         $this->_eavSetupFactory = $eavSetupFactory;
     }
 
     public function apply()
     {
-        /** @var EavSetup $eavSetup */
 
         $eavSetup = $this->_eavSetupFactory->create(['setup' => $this->_moduleDataSetup]);
         $eavSetup->addAttribute(
             \Magento\Catalog\Model\Product::ENTITY,
-            'my_color',
+            'air_freight_only',
         [
-            'type' => 'int',
-            'backend' => '',
-            'frontend' => '',
-            'label' => 'My Color',
+            'group'=> 'General',
+            'type' => 'varchar',
+            'label' => 'Air freight only',
             'input' => 'select',
-            'class' => '',
-            'source' => \Magento\Catalog\Model\Product\Attribute\Source\Boolean::class,
-            'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
+            'required' => false,
             'visible' => true,
-            'required' => true,
             'user_defined' => false,
+            'source' => \Perspective\T15Ex2p2\Model\Source\Options::class,
             'default' => '',
-            'searchable' => false,
-            'filterable' => false,
-            'comparable' => false,
-            'visible_on_front' => false,
-            'used_in_product_listing' => true,
-            'unique' => false,
+            // 'option' => [ 
+            //     'values' => [],
+            // ]
+
         ]);
  
     }

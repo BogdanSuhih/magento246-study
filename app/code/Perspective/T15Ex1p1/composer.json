@@ -1,0 +1,17 @@
+{
+    "name": "perspective/t15ex1p1",
+    "description": "",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+      "MIT"
+    ],
+    "autoload": {
+      "psr-4": {
+        "Perspective\\T15Ex1p1\\": ""
+      },
+      "files": [
+        "registration.php"
+      ]
+    }
+  }
