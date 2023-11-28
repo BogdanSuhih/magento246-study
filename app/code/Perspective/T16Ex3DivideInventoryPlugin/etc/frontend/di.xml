@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\InventoryConfigurationApi\Api\Data\StockItemConfigurationInterface">
+        <plugin name="divide_inventory_plugin_threshold" 
+        type="Perspective\T16Ex3DivideInventoryPlugin\Plugin\Threshold" 
+        sortOrder="1"
+        disabled="true"/>
+    </type>
+    <type name="\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface">
+        <plugin name="divide_inventory_plugin_productsalableqty" 
+        type="Perspective\T16Ex3DivideInventoryPlugin\Plugin\ProductSalableQty" 
+        sortOrder="1"
+        disabled="false"/>
+    </type>
+
+</config>

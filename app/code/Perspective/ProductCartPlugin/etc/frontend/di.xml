@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="\Magento\Checkout\Model\Cart">
+        <plugin name="perspective_productcartplugin_plugins_checkout_model_cart" 
+        type="Perspective\ProductCartPlugin\Plugins\Checkout\Model\Cart" 
+        sortOrder="1" 
+        disabled="false" />
+        <plugin name="perspective_productcartplugin_plugins_checkout_model_cartadd" 
+        type="Perspective\ProductCartPlugin\Plugins\Checkout\Model\CartAroundAddProduct" 
+        sortOrder="1" 
+        disabled="false" />
+    </type>
+    <type name="\Magento\Catalog\Model\Product">
+        <plugin name="perspective_productcartplugin_plugins_catalog_model_product" 
+        type="Perspective\ProductCartPlugin\Plugins\Catalog\Model\Product" 
+        sortOrder="1" 
+        disabled="true" />
+    </type>
+</config>
