@@ -1,0 +1,14 @@
+<?php
+$product = $block->getProduct();
+$orders = $product->getOrders();
+
+if (!empty($orders)) {
+    
+    echo __("{$product->getName()} was ordered:") . '<br />';
+    foreach ($orders as $date => $qty) {
+        echo $date . ' - ' . $qty .  __("qty").'<br />';
+        
+    }
+} else {
+    echo __("No orders information") . '<br />';
+}

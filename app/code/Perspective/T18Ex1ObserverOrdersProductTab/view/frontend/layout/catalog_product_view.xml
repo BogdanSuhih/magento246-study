@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" 
+                    name="orders.tab" as="orders" 
+                    template="Perspective_T18Ex1ObserverOrdersProductTab::product/view/orders.phtml" 
+                    group="detailed_info"
+                >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Orders</argument>
+                    <argument name="sort_order" xsi:type="string">40</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
