@@ -1,0 +1,18 @@
+<?php
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var \Perspective\T19CronTopNotification\ViewModel\Notification $notification*/
+
+$notification = $block->getData('notification');
+
+
+?>
+    <?php if ($notification && $notification->isVisible()) :?>
+
+        <div class="top-bar-notification tbn-type-text " data-mage-init='{"topbarnotification": {}}'>
+            <div class="tbn-text">
+                <?=__('%1 successful sales today!', $notification->getSales())?>
+            </div>
+            <div id="tbn-close-btn" class="tbn-close-btn"></div>
+        </div>
+    <?php endif ;?>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="custom_tab" translate="label" sortOrder="10">
+            <label>Custom</label>
+        </tab>
+        <section id="cron_setup" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Cron Setup</label>
+            <tab>custom_tab</tab>
+            <resource>Perspective_CronDynamicallyScheduleJob::acl_rule</resource>
+            <group id="cronScheduled" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                showInStore="1">
+                <label>Scheduled</label>
+                <field id="frequency" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Frequency</label>
+                    <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Perspective\CronDynamicallyScheduleJob\Model\Config\CronConfig</backend_model>
+                </field>
+                <field id="time" translate="label comment" sortOrder="2" type="time" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Start Time</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

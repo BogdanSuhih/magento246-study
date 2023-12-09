@@ -1,0 +1,29 @@
+.top-bar-notification {
+    position: relative;
+}
+
+.top-bar-notification.tbn-type-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+
+    background: #ffdd16;
+}
+
+.top-bar-notification.hidden {
+    display: none;
+}
+
+.top-bar-notification .tbn-close-btn {
+    background: url('../images/icon-close.png') no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    margin: 5px;
+}

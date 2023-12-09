@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Perspective_T19CronTopNotification::css/styles.css" />
+    </head>
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Perspective\T19CronTopNotification\Block\Notification" 
+                name="top.bar.notification" 
+                before="-" 
+                template="Perspective_T19CronTopNotification::notification.phtml"
+                cacheable="false">
+                <arguments>
+                    <argument xsi:type="object" name="notification">Perspective\T19CronTopNotification\ViewModel\Notification</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
