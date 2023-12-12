@@ -1,0 +1,26 @@
+<?php
+/** @var \Perspective\M1T1AllPrices\ViewModel\Index $viewModel */
+
+$viewModel = $block->getData('view_model');
+?>
+
+<?php if ($viewModel->isModuleEnable()) : ?>
+    <?=$viewModel->getBasePrice()?>
+    <?=$viewModel->getFinalPrice()?>
+    <?=$viewModel->getSpecialPrice()?>
+    <?php 
+    $tierPrices = $viewModel->getTierPrice();
+    if ($tierPrices!==null) : ?>
+        
+        <?php if (count($tierPrices) > 0) : ?>
+            <p><b><?=__('Tier price: ')?></b></p>
+            <?php foreach ($tierPrices as $qty => $price):?>
+                <p><?=$qty . __(' for ') .$price?> </p>
+            <?php endforeach;?>
+        <?php else:?>
+            <p><b><?=__('Tier price: ')?></b> --</p>
+        <?php endif;?>
+    <?php endif;?>
+    <?=$viewModel->getCatalogRulePrice()?>
+
+<?php endif ?>
