@@ -3,8 +3,6 @@
 
 $viewModel = $block->getData('view_model');
 ?>
-
-<?php if ($viewModel->isModuleEnable()) : ?>
     <?=$viewModel->getBasePrice()?>
     <?=$viewModel->getFinalPrice()?>
     <?=$viewModel->getSpecialPrice()?>
@@ -23,4 +21,3 @@ $viewModel = $block->getData('view_model');
     <?php endif;?>
     <?=$viewModel->getCatalogRulePrice()?>
 
-<?php endif ?>

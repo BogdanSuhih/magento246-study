@@ -3,6 +3,7 @@
     <body>
         <referenceContainer name="product.info.main" >
             <block 
+            ifconfig="all_prices_section/general/enable"
             name="product.price.base.perspective_m1_t1" 
             before="product.price.tier" 
             after="product.info.price"
