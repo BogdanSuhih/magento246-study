@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Perspective_M1T2Countdown::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="product.info.main" >
+            <block 
+            ifconfig="countdown_section/general/enable"
+            name="product.price.base.perspective_m1_t2" 
+            before="product.price.tier" 
+            after="product.info.price"
+            template="Perspective_M1T2Countdown::index.phtml"
+            cacheable="false">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Perspective\M1T2Countdown\ViewModel\Index</argument>
+                </arguments>
+            </block>
+        </referenceContainer>    
+    </body>
+</page>

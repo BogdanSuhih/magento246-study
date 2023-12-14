@@ -1,0 +1,79 @@
+<?php
+/** @var \Perspective\M1T2Countdown\ViewModel\Index $viewModel */
+
+$viewModel = $block->getData('view_model');
+$format = $viewModel::DATE_FORMAT;
+$endDates = [];
+$min = null;
+$minActiveTime = null;
+$specialEnd = $viewModel->getSpecialEnd();
+if ($specialEnd) {
+    $endDates[] = $specialEnd;
+}
+$rules = $viewModel->getProductRules();
+foreach ($rules as $rule) {
+    $endDates[] = $viewModel->formatDate($rule['to_time']);
+}
+
+if ($endDates) {
+    $min = min($endDates);
+    $minActiveTime = $viewModel->getMinActiveTime($endDates);
+}
+
+?>
+<?php if ($specialEnd) : ?>
+    <p><?=__('Special price $%2 to %1', $viewModel->formatDate($specialEnd, $format), round((float) $viewModel->getCurrentProduct()->getSpecialPrice()))?></p>
+<?php endif;?>
+
+<?php foreach ($rules as $rule) :?>
+    <p><?=
+        __('%1 to %2', $viewModel->getRuleName($rule['rule_id']),
+                        $viewModel->formatDate($rule['to_time'], $format))
+    ?></p>
+<?php endforeach ;?>
+
+<?php if ($min) : ?>
+    <p><?=__('Minimal date %1', $viewModel->formatDate($min,$format))?></p>
+<?php endif;?>
+
+<?php if ($minActiveTime) : ?>
+    <p><?=__('Minimal active date %1', $viewModel->formatDate($minActiveTime, $format))?></p>
+
+    <div id="timer-wrapper">
+
+        <div id="getting-started">
+            <div class="time-block">
+                <div class="time-value" id="days"></div>
+                <div class="time-label"><?= __('Days'); ?></div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="hours"></div>
+                <div class="time-label"><?= __('Hour'); ?></div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="minutes"></div>
+                <div class="time-label"><?= __('Minute'); ?></div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="seconds"></div>
+                <div class="time-label"><?= __('Second'); ?></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'countdown',
+        ], function ($) {
+
+            $("#getting-started").countdown("<?= $minActiveTime; ?>", function (event) {
+                $("#days").text(event.strftime('%D'));
+                $("#hours").text(event.strftime('%H'));
+                $("#minutes").text(event.strftime('%M'));
+                $("#seconds").text(event.strftime('%S'));
+            });
+        })
+    </script>
+
+<?php endif;?>
