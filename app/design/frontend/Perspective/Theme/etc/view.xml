@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <vars module="Magento_Catalog">
+        <var name="gallery">
+            <var name="navdir">vertical</var> 
+        </var>
+    </vars>
+    
+    <media>
+        <images module="Magento_Catalog">
+            <image id="category_page_grid" type="small_image">
+                <width>150</width>
+                <height>300</height>
+                <background>[66, 245, 215]</background>
+            </image>
+            <image id="new_image_role_for_list_view" type="small_image">
+                <width>100</width>
+                <height>250</height>
+                <background>[245, 66, 156]</background>
+            </image>
+
+        </images>
+    </media>
+</view>
