@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+<!--         <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/> -->    
+
+<!--         <referenceContainer name="product.info.main">
+            <container name="some.container" label="Some Container" htmlTag="div" htmlClass="some-container" after="product.info.price" >
+                <block class="Magento\Framework\View\Element\Template" name="price.after.text" template="Magento_Catalog::price_after_text.phtml" />
+            </container>
+        </referenceContainer> -->
+
+<!--         <move element="product.info.price" 
+                destination="product.info.main"
+                after="product.info.extrahint" /> -->
+
+<!-- <move element="product.info.price" destination="product.info.addtocart.additional" />
+ -->
+<!-- <referenceContainer name="content" remove="true"/>
+ -->
+    </body>
+</page>
