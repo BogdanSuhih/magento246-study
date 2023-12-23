@@ -4,5 +4,12 @@
         <move element="product.info.configurable" destination="product.info.main" after="product.info.price"/>
         <move element="product.info.simple" destination="product.info.main" after="product.info.price"/>
         <move element="product.info.bundle" destination="product.info.main" after="product.info.price"/>
+
+
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">More Information - overwritten text argument</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
