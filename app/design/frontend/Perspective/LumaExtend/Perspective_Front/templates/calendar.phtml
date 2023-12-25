@@ -1,0 +1,92 @@
+<?php 
+/**
+ * @var Magento\Framework\View\Element\Template $block
+ */
+?>
+
+<div class="field" style="margin:30px">
+    <label >Date : </label>
+    <input type="text" class="input-text" id="datepicker" style="width: auto" name="example-date" />
+</div>
+
+<script>
+  require([
+    'jquery',
+    'mage/translate',
+    'mage/calendar'
+    ], function ($, $t) {
+      $('#datepicker').datepicker({
+        
+        dateFormat:'M dd yy',
+        yearRange: '2020:2025',
+        
+
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        currentText: $t('Go Today'),
+        closeText: $t('Close'),
+        showWeek: true
+      });
+    })
+</script>
+
+<div class="field" style="margin:30px">
+    <label>Datetime : </label>
+    <input type="text" name="datetimepicker" id="datetimepicker" style="width: auto" value="" class="datetimepicker">
+</div>
+
+<script>
+    require([
+        'jquery',
+        'mage/calendar'
+    ], function ($) {
+        $('#datetimepicker').datetimepicker({
+            dateFormat: 'mm/dd/yy',
+            timeFormat: 'HH:mm:ss',
+            changeMonth: true,
+            changeYear: true,
+            showsTime: true
+        });
+    });
+</script>
+
+<div class="field required" id="daterange">
+    <label for="from" class="label">
+        <span>From date</span>
+    </label>
+    <div class="control">
+        <input class="input-text required-entry"
+               type="text"
+               id="from-date"
+               name="from-date"
+               style="width: 500px"/>
+    </div>
+    <label for="to" class="label">
+        <span>To date</span>
+    </label>
+    <div class="control">
+        <input class="input-text required-entry"
+               type="text"
+               id="to-date"
+               name="to-date"
+               style="width: 500px" />
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'mage/calendar'
+    ], function ($) {
+        $('#daterange').dateRange({
+            buttonText: 'Choose Date',
+            from: {
+                id: 'from-date'
+            },
+            to: {
+                id: 'to-date'
+            }
+        });
+    });
+</script>

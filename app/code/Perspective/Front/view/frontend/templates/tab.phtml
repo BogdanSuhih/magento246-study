@@ -1,0 +1,79 @@
+<?php 
+/**
+ * @var Magento\Framework\Escaper $escaper
+ */
+$mageInit = 'data-mage-init="{"mage/tabs": {"openedState": "active", "animate": {"duration": 100}, "active": 1, "disabled": [], "disabledState": "disabled"}}"';
+
+$script = '    <script type="text/x-magento-init">
+{
+    "#tabs-mage-init": {
+        "mage/tabs": {
+            "openedState": "active",
+            "animate": {"duration": 100},
+            "active": 0,
+            "disabled": [],
+            "disabledState": "disabled"
+        }
+    }
+}
+</script>';
+?>
+
+<div class="product data items" 
+    data-mage-init='{"mage/tabs": {"openedState": "active", "animate": {"duration": 100}, "active": 1, "disabled": [], "disabledState": "disabled"}}'>
+    
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-cars">Cars</a>
+    </div>
+    <div id="tab-cars" class="item content" data-role="content">Cars content</div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-movies">Movies</a>
+    </div>
+    <div id="tab-movies" class="item content" data-role="content">
+        <?= $escaper->escapeHtml($mageInit); ?>
+    </div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-music">Music</a>
+    </div>
+    <div id="tab-music" class="item content" data-role="content">Music Content</div>
+</div>
+
+<div class="product data items" id="tabs-mage-init">
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-cars">Cars</a>
+    </div>
+    <div id="tab-cars" class="item content" data-role="content">
+        <?=$escaper->escapeHtml($script);?>
+    </div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-movies">Movies</a>
+    </div>
+    <div id="tab-movies" class="item content" data-role="content">Movies content</div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-music">Music</a>
+    </div>
+    <div id="tab-music" class="item content" data-role="content">Music Content</div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-other">Other</a>
+    </div>
+    <div id="tab-other" class="item content" data-role="content">Content</div>
+
+    <script type="text/x-magento-init">
+        {
+            "#tabs-mage-init": {
+                "mage/tabs": {
+                    "openedState": "active",
+                    "animate": {"duration": 100},
+                    "active": 0,
+                    "disabled": [],
+                    "disabledState": "disabled"
+                }
+            }
+        }
+    </script>
+</div>

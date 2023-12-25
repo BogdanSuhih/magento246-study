@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="Perspective_Front_Tab"
+                    template="Perspective_Front::tab.phtml" />
+        </referenceContainer>
+         <referenceContainer name="content">
+            <block name="Perspective_Front_Modal"
+                    template="Perspective_Front::modal.phtml" />
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="custom.block" after="-" template="Perspective_Front::custom-template.phtml">
+                <arguments>
+                    <argument name="config" xsi:type="array">
+                        <item name="myConfigValue" xsi:type="string">Hello from config!</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+    </body>
+</page>

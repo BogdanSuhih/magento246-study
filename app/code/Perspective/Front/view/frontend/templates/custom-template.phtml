@@ -1,0 +1,16 @@
+<?php
+$elementId = 'custom-element';
+$config = $block->getConfig();
+?>
+
+<div style="margin:20px 0px" id="<?= $elementId; ?>">This is a custom element</div>
+
+<script type="text/x-magento-init">
+{
+    "#<?= $elementId; ?>": {
+        "Perspective_Front/js/custom-script": {
+            "myConfigArray": <?php echo json_encode($config, JSON_HEX_TAG); ?>
+        }
+    }
+}
+</script>
